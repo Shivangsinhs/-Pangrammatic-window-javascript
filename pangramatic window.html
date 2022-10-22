@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 02 220018772</title>
+</head>
+<body>
+  <script>
+    var phrase = prompt('Please enter a phrase');
+
+    // building an array of length 26 to keep track if we have all of the chars 
+    var character = [];
+    for(var i = 0; i <= 25; i++) {
+      character[i] = 0;
+    }
+
+    // iterating each char of the phrase 
+    for(var i = 0; i < phrase.length; i++) {
+      var uniquecode = phrase.charCodeAt(i);
+      if(uniquecode >= 65 && uniquecode <= 122) {
+        // assigning 1 to relevant position
+        if(uniquecode >= 97) {
+          character[uniquecode - 97] = 1;
+        } else {
+          character[uniquecode - 65] = 1;
+        }
+      }
+    }
+
+    // if character has 26 1s then it is pangrammatic
+    var count = 0;
+    for(var i = 0; i < character.length; i++) {
+      if(character[i] == 1) {
+        count++;
+      }
+    }
+
+    if(count == 26) {
+      alert('The phrase is pangrammatic');
+    } else {
+      alert('The phrase is not pangrammatic');
+    }
+  </script>
+</body>
+</html>
